@@ -25,9 +25,7 @@ public class bing {
 		
 		
 		URL url = new URL("http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US");
-       /* BufferedImage img = ImageIO.read(url);
-        File file = new File("D:\\image\\downloaded.jpg");
-        ImageIO.write(img, "jpg", file);*/
+      
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance();
@@ -36,13 +34,13 @@ public class bing {
 		Scanner sc = new Scanner(url.openStream());
 		String br = sc.nextLine();
 		String imurl="http://www.bing.com";
-			//System.out.println(br);
+			
 			
 			JSONObject obj = new JSONObject(br);
 			JSONArray data =obj.getJSONArray("images");
 			JSONObject imagge = data.getJSONObject(0);
 			imurl =	imurl+	imagge.getString("url");
-				//System.out.println(imurl);
+				
 			URL url2 = new URL(imurl);
 			BufferedImage img = ImageIO.read(url2);
 			loc="D:\\image\\"+date1+".jpg";
